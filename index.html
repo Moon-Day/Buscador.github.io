@@ -39,6 +39,24 @@ filteredData.forEach(item => {
 });
 }
 
+function search() {
+    // Limpa os resultados anteriores
+    document.getElementById("searchResults").innerHTML = "";
+    
+    // Obtém o valor digitado no campo de pesquisa
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+    
+    // Filtra os dados com base no termo de pesquisa
+    const filteredData = data.filter(item => item.toLowerCase().includes(searchTerm));
+    
+    // Exibe os resultados
+    filteredData.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      document.getElementById("searchResults").appendChild(li);
+    });
+    }
+    
   </script>
 </body>
 </html>
