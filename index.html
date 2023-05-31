@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Digite sua busca">
+  <button onclick="search()">Buscar</button>
+  <ul id="searchResults"></ul>
+
+  <script>
+    // Dados de exemplo
+const data = [
+"Item 1",
+"Item 2",
+"Item 3",
+"Outro item",
+"Mais um item"
+];
+
+function search() {
+// Limpa os resultados anteriores
+document.getElementById("searchResults").innerHTML = "";
+
+// Obtém o valor digitado no campo de pesquisa
+const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+// Filtra os dados com base no termo de pesquisa
+const filteredData = data.filter(item => item.toLowerCase().includes(searchTerm));
+
+// Exibe os resultados
+filteredData.forEach(item => {
+  const li = document.createElement("li");
+  li.textContent = item;
+  document.getElementById("searchResults").appendChild(li);
+});
+}
+
+  </script>
+</body>
+</html>
